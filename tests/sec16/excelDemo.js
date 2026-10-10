@@ -1,20 +1,29 @@
 const ExcelJs = require('exceljs');
 
-let cellIndex = {row:-1,col:-1};
-const workbook = new ExcelJs.Workbook();
-workbook.xlsx.readFile("excelDownloadTest.xlsx").then(function(){
+async function writeExcelTest(searchText, replaceText, offset, filePath){
+    const workbook = new ExcelJs.Workbook();
+    await workbook.xlsx.readFile(filePath);
     const worksheet = workbook.getWorksheet('Sheet1');
+    const output = await readExcel(worksheet, searchText);
+    const cell = worksheet.getCell(output.row + offset.row, output.col + offset.col);
+    cell.value = replaceText;
+    workbook.xlsx.writeFile("excelDownloadTestOutput.xlsx")
+}
+
+async function readExcel(worksheet, searchText){
+    let cellIndex = {row:-1,col:-1};
     worksheet.eachRow((row, rowNum)=>{
         row.eachCell((col, colNum)=>{
-            // console.log(col.value);
-            if(col.value === "Apple"){
+            if(col.value === searchText){
                 cellIndex.row = rowNum;
                 cellIndex.col = colNum;
             }
         })
     })
+    return cellIndex;
+}
 
-    const cell = worksheet.getCell(cellIndex.row, cellIndex.col);
-    cell.value = "Iphone 18";
-    workbook.xlsx.writeFile("excelDownloadTestOutput.xlsx")
-})
+//change price for mango to 350
+writeExcelTest("Mango", 350, {row:0, col:2},"excelDownloadTest.xlsx")
+
+
