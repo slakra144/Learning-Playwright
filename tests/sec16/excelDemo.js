@@ -7,7 +7,7 @@ async function writeExcelTest(searchText, replaceText, offset, filePath){
     const output = await readExcel(worksheet, searchText);
     const cell = worksheet.getCell(output.row + offset.row, output.col + offset.col);
     cell.value = replaceText;
-    workbook.xlsx.writeFile("excelDownloadTestOutput.xlsx")
+    workbook.xlsx.writeFile(filePath)
 }
 
 async function readExcel(worksheet, searchText){
@@ -23,7 +23,8 @@ async function readExcel(worksheet, searchText){
     return cellIndex;
 }
 
-//change price for mango to 350
-writeExcelTest("Mango", 350, {row:0, col:2},"excelDownloadTest.xlsx")
-
-
+// Exporting the functions
+module.exports = {
+    writeExcelTest,
+    readExcel
+};
