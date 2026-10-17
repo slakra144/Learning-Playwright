@@ -14,6 +14,8 @@ import { defineConfig, devices, firefox } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
+  retries: 1, // ideally should be 1 or 2 
+  workers: 3,
   timeout:30 * 1000,//in ms
   expect:{
     timeout: 5 * 1000,
@@ -36,8 +38,8 @@ export default defineConfig({
       use: {
         browserName:'chromium',
         headless:false,
-        screenshot:'off',
-        trace:'off',
+        screenshot:'on',
+        trace:'on',
         ignoreHTTPSErrors:true, // allow website with expired ssl certificates
         permissions:["geolocation"] // enables playwright to hadnle "ask for location" permissions
 

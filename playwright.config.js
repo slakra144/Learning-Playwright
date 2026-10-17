@@ -22,7 +22,7 @@ export default defineConfig({
   use: {
    browserName:'firefox',
    headless:false,
-   screenshot:'on',
+   screenshot:'off',
    trace:'off'
   },
 

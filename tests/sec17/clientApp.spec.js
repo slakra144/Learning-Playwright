@@ -40,7 +40,7 @@ for(const data of dataset){
     })
 }
 
-customDDT.only(`Client App Place Order`, async ({page,testDataForOrder})=>{         
+customDDT(`Client App Place Order`, async ({page,testDataForOrder})=>{         
         const base = new POManager(page);
 
         const loginPage = base.getLoginPage();
