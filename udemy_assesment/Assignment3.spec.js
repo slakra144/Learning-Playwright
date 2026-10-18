@@ -63,14 +63,14 @@ test('Test 1 — Banner IS visible when 6 events are returned', async({page})=>{
         expect(await events.count()).toBe(6);
 
         // Step 4 — Verify banner is visible
-        await page.pause();
+        // await page.pause();
         const banner = page.getByText(/Your sandbox holds up to/i);// regex example
         await expect(banner).toBeVisible();
         await expect(banner).toContainText('9 bookings');
         
 })
 
-test.only('Test 2 — Banner is NOT visible when 4 events are returned', async({page})=>{
+test('Test 2 — Banner is NOT visible when 4 events are returned', async({page})=>{
   await page.route("**/api/events**", async(route)=>{
     let body = JSON.stringify(FOUR_EVENTS_RESPONSE);
     route.fulfill(
@@ -91,7 +91,7 @@ test.only('Test 2 — Banner is NOT visible when 4 events are returned', async({
   expect(await events.count()).toBe(4);
 
   // Step 4 — Verify banner is visible
-  await page.pause();
+  // await page.pause();
   const banner = page.getByText(/Your sandbox holds up to/i);// regex example
   expect(await banner.isHidden()).toBeTruthy();
 })

@@ -24,7 +24,7 @@ test('@QW Security test request intercept', async({page})=>{
    
 })
 
-test.only('abort network call',async ({browser})=>{
+test('abort network call',async ({browser})=>{
     //playwright code
     
     const context = await browser.newContext();
@@ -37,8 +37,8 @@ test.only('abort network call',async ({browser})=>{
     const cardTitle = page.locator(".card-title a");
     
     page.route('**/*.{jpg,png,jpeg}', req=>req.abort())
-    page.on('request', req => console.log(req.url()));
-    page.on('response', res => console.log(res.url()+" "+res.status()))
+    // page.on('request', req => console.log(req.url()));
+    // page.on('response', res => console.log(res.url()+" "+res.status()))
     //open page
     await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
     // css or xpath
@@ -48,6 +48,6 @@ test.only('abort network call',async ({browser})=>{
     
     const allTitle = await cardTitle.allTextContents();
     console.log(allTitle);
-    await page.pause()
+    // await page.pause()
 
 })

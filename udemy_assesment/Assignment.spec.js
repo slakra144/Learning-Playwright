@@ -1,5 +1,5 @@
 const {test, expect} = require('@playwright/test');
-import { login } from './utils/LoginHelper.spec';
+import { login } from '../tests/utils/LoginHelper.spec';
 
 const BASE_URL = 'https://eventhub.rahulshettyacademy.com';
 

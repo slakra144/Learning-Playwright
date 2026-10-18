@@ -1,5 +1,5 @@
 const {test, expect, request} = require('@playwright/test')
-const {newTest} = require("./utils/assignmentFixtures.js")
+const {newTest} = require("../tests/utils/assignmentFixtures.js")
 
 newTest("custom fixture test", async({authenticatedPage,createEvent})=>{
     await authenticatedPage.goto('https://eventhub.rahulshettyacademy.com/events');

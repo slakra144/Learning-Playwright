@@ -53,6 +53,6 @@ test("Place the order", async({page})=>{
         }
     }
     const orderDetails = await page.locator('div.col-text').textContent();
-    await page.pause();
+    // await page.pause();
     expect(orderDetails.includes(response.orderID)).toBeTruthy();
 });

@@ -14,16 +14,18 @@ import { defineConfig, devices, firefox } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
-  timeout:60 * 1000,//in ms
+  retries:2,
+  workers: "50%",
+  timeout:30 * 1000,//in ms
   expect:{
     timeout: 5 * 1000,
   },
   reporter:'html',
   use: {
-   browserName:'firefox',
-   headless:false,
-   screenshot:'off',
-   trace:'off'
+   browserName:'chromium',
+   headless:true,
+   screenshot:'on',
+   trace:'on'
   },
 
 });

@@ -1,7 +1,7 @@
 const {test, expect} = require('@playwright/test');
 
 // test.describe.configure({mode:"parallel"}) // will run the test in parallel
-test.describe.configure({mode:"serial"})
+// test.describe.configure({mode:"serial"}) // will run test in serial if any test fails then all remaining test will be skipped
 test('visual testing', async({page})=>{
     await page.goto('https://google.com/',{waitUntil:'networkidle'});
     expect(await page.screenshot()).toMatchSnapshot('landing.png');

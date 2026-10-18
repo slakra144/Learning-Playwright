@@ -51,8 +51,8 @@ test('UI Controls', async({page})=>{
     await expect(page.locator('#terms')).toBeChecked();
     await page.locator('#terms').uncheck();
     expect(await page.locator('#terms').isChecked()).toBeFalsy(); //action performed inside {}
-    await expect(documentLink).toHaveAttribute('class','blinkingTexts');
-    await page.pause();
+    await expect(documentLink).toHaveAttribute('class','blinkingText');
+    // await page.pause();
 })
 
 test('Child Windows handle', async({browser})=>{

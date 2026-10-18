@@ -13,7 +13,7 @@ import { defineConfig, devices, firefox } from '@playwright/test';
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: './udemy_assesment',
   retries: 1, // ideally should be 1 or 2 
   workers: 3,
   timeout:30 * 1000,//in ms
