@@ -6,7 +6,7 @@ const {customDDT} = require("../../test-data/test-data-fixture");
 const dataset = JSON.parse(JSON.stringify(require("../../test-data/placeOrderTestData.json")));
 
 for(const data of dataset){
-    test(`Client App Place Order ${data.productName}`, async ({page})=>{ //need to parameterize testname otherwise will throw error
+    test(`@Web Client App Place Order ${data.productName}`, async ({page})=>{ //need to parameterize testname otherwise will throw error
         //js file- Login js, DashboardPage
         const keyword = "ind"
         const country = "India"

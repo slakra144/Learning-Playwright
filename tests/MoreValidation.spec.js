@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test');
 
-test("Pop up Validatioin", async({page})=>{
+test("@Web Pop up Validatioin", async({page})=>{
     await page.goto('https://rahulshettyacademy.com/AutomationPractice/')
     // await page.goto('https://google.com');
     // await page.goBack();

@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test');
 
-test('tc01',async ({browser})=>{
+test('@Web tc01',async ({browser})=>{
     //playwright code
     
     const context = await browser.newContext();
@@ -30,13 +30,13 @@ test('tc01',async ({browser})=>{
 
 })
 
-test('tc01a', async ({page})=>{
+test('@Web tc01a', async ({page})=>{
     await page.goto('https://google.com');
     console.log(await page.title());
     await expect(page).toHaveTitle("Google");
 })
 
-test('UI Controls', async({page})=>{
+test('@Web UI Controls', async({page})=>{
     await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
     const uname = page.locator('input#username');
     const pass = page.locator('input#password');
@@ -55,7 +55,7 @@ test('UI Controls', async({page})=>{
     // await page.pause();
 })
 
-test('Child Windows handle', async({browser})=>{
+test('@Web Child Windows handle', async({browser})=>{
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
