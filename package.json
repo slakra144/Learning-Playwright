@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "test": "",
+    "regression":"npx playwright test",
+    "webTest":"npx playwright test --grep @Web",
+    "custonChromeConfig":"npx playwright test --config playwright.config1.js --project=chrome"
   },
   "keywords": [],
   "author": "",
